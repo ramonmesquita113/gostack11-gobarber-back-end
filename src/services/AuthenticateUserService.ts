@@ -1,5 +1,6 @@
 import { getRepository } from 'typeorm';
-import { hash, compare } from 'bcryptjs';
+import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 
 import User from '../models/User';
 
@@ -10,6 +11,7 @@ interface Request {
 
 interface Response {
   user: User;
+  token: string;
 }
 
 class AuthenticateUserService {
@@ -30,7 +32,13 @@ class AuthenticateUserService {
       throw new Error('Incorrect email/password combination.');
     }
 
-    return { user };
+    // site md5.cz; md5(gostack11-gobarber)
+    const token = sign({}, 'cdf8b58f271eed0501a5b7d404a3de9a', {
+      subject: user.id,
+      expiresIn: '1d',
+    });
+
+    return { user, token };
   }
 }
 
