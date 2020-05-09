@@ -1,7 +1,7 @@
 ## Banco de Dados:
 
 ```docker
-docker run --name gostack_postgress -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
 ## Padrão de nomeação no Banco de dados
