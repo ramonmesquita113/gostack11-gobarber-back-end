@@ -35,8 +35,8 @@ class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async save({ name, email, password }: User): Promise<User> {
-    return this.ormRepository.save({ name, email, password });
+  public async save(user: User): Promise<User> {
+    return this.ormRepository.save(user);
   }
 }
 

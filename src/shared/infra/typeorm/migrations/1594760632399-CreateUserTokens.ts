@@ -1,5 +1,4 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
-import { query } from 'express';
 
 export default class CreateUserTokens1594760632399
   implements MigrationInterface {
