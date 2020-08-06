@@ -4,7 +4,7 @@ import ListProviderMonthAvailabilityService from '@modules/appointments/services
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let listProviderMonthAvailabilityService: ListProviderMonthAvailabilityService;
 
-describe('ListProvidersService', () => {
+describe('ListProviderMonthAvailabilityService', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
     listProviderMonthAvailabilityService = new ListProviderMonthAvailabilityService(
@@ -74,7 +74,7 @@ describe('ListProvidersService', () => {
       month: 5,
     });
 
-    await expect(availability).toEqual(
+    expect(availability).toEqual(
       expect.arrayContaining([
         { day: 19, available: true },
         { day: 20, available: false },

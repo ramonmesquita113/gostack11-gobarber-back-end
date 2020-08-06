@@ -1,4 +1,4 @@
-export default interface ICreateAppointmentDTO {
+export default interface IFindAllMonthFromProviderDTO {
   provider_id: string;
   month: number;
   year: number;
