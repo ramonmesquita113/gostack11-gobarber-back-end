@@ -21,6 +21,13 @@ class Appointment {
   @JoinColumn({ name: 'provider_id' })
   provider: User;
 
+  @Column()
+  user_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
+
   // Just Postgres has 'timestamp with time zone', others databases use timestamp
   @Column('timestamp with time zone')
   date: Date;
