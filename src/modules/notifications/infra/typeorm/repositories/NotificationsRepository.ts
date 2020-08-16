@@ -9,7 +9,7 @@ export default class NotificationsRepository
   private ormRepository: MongoRepository<Notification>;
 
   constructor() {
-    this.ormRepository = getMongoRepository(Notification, 'mongodb');
+    this.ormRepository = getMongoRepository(Notification, 'mongo');
   }
 
   public async create({
@@ -20,7 +20,9 @@ export default class NotificationsRepository
       content,
       recipient_id,
     });
+
     await this.ormRepository.save(notification);
+
     return notification;
   }
 }
