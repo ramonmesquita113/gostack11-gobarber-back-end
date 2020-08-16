@@ -1,6 +1,9 @@
 node_modules
 dist
 tmp/*
-!tmp/.gitkeep
 coverage
+
+!tmp/.gitkeep
 yarn-error.log
+.env
+ormconfig.json
