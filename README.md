@@ -1,14 +1,18 @@
 ## Banco de Dados:
 
 ```docker
-docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+docker run --name gobarber-postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
 ```docker
-docker run --name mongodb -p 27017:27017 -d -t mongo
+docker run --name gobarber-mongodb -p 27017:27017 -d -t mongo
 ```
 
 Para verificar se o Mongo está funcionando acesse `localhost:27017` e a página deve exibir: `It looks like you are trying to access MongoDB over HTTP on the native driver port.`
+
+```docker
+docker run --name gobarber-redis -p 6379:6379 -d -t redis:alpine
+```
 
 ## Padrão de nomeação no Banco de dados
 
