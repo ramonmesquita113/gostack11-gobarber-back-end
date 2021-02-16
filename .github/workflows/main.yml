@@ -10,6 +10,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: NPM or Yarn install with caching
+        uses: bahmutov/npm-install@v1.6.0
+        
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
         with:
@@ -54,7 +58,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app/gostack11-gobarber-back-end
-            ./node_modules/.bin/typeorm migrations:run
+            node_modules/.bin/typeorm migrations:run
       
       - name: Run migrations on Digital Ocean 
         uses: appleboy/ssh-action@master
