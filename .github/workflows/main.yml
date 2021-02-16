@@ -34,7 +34,7 @@ jobs:
           source: ".,!node_modules"
           target: "~/app/gostack11-gobarber-back-end"
         
-      - name: Install dependencies with yarn
+      - name: Executing remote ssh commands on Digital Ocean
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -45,7 +45,7 @@ jobs:
             cd ~/app/gostack11-gobarber-back-end
             yarn
       
-      - name: Run migrations with TypeORM
+      - name: Run migrations
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -54,9 +54,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app/gostack11-gobarber-back-end
-            ./node_modules/.bin/typeorm migration:run
+            ./node_modules/.bin/typeorm migrations:run
       
-      - name: Restart application with pm2 
+      - name: Run migrations on Digital Ocean 
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -64,4 +64,3 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: pm2 restart gobarber-api
-
