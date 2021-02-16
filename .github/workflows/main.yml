@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app/gostack11-gobarber-back-end
-            ./node_modules/.bin/typeorm migrations:run
+            ./node_modules/.bin/typeorm migration:run
       
       - name: Restart application with pm2 
         uses: appleboy/ssh-action@master
